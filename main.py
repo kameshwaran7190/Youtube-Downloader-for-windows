@@ -8,11 +8,11 @@ def startDownload(option):
         ytLink = link.get()
         ytObject = YouTube(ytLink, on_progress_callback=on_progress)
         if option == "hq":
-            video = ytObject.streams.get_highest_resolution()
+            video = ytObject.streams.get_by_itag(137)
         elif option == "lq":
-            video = ytObject.streams.get_lowest_resolution()
+            video = ytObject.streams.get_by_itag(22)
         elif option == "audio":
-            video = ytObject.streams.get_audio_only()
+            video = ytObject.streams.get_by_itag(140)
         else:
             return
 
